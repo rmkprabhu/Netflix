@@ -3,13 +3,12 @@ pipeline {
    {
     label 'jenkins-sonarqube-project-node'
    }
-  stages {
-    stage('SCM') {
-    git 'https://github.com/rmkprabhu/Netflix.git'
+  stage('SCM') {
+    checkout scm
   }
-  stage('SonarQube analysis') {
-    def scannerHome = tool 'SonarScanner 4.0';
-    withSonarQubeEnv('Sonar-scanner') { // If you have configured more than one global server connection, you can specify its name
+  stage('SonarQube Analysis') {
+    def scannerHome = tool 'SonarScanner';
+    withSonarQubeEnv() {
       sh "${scannerHome}/bin/sonar-scanner"
     }
   }
