@@ -1,7 +1,7 @@
 pipeline {
   agent 
    {
-    label 'bpcl-prod'
+    label 'jenkins-sonarqube-project-node'
    }
   stages {
     stage('Build') {
