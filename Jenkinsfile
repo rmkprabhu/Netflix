@@ -24,8 +24,9 @@ pipeline {
     {
       steps {
         echo "deploying the application"
-        sh "sudo docker build -t python-testjenkins ."
-        sh 'sudo docker run -d -p "5000:5000" -i python-testjenkins:latest'
+        sh "sudo docker build -t netflix ."
+        sh 'sudo docker run -d -p 3000:3000 --name NETFLIX netflix'
+
       }
     }
 }
