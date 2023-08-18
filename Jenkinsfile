@@ -28,19 +28,5 @@ pipeline {
         sh 'sudo docker run -d -p 3000:3000 --name NETFLIX netflix'
       }
     }
-
-    post {
-        always {
-            echo 'The pipeline completed'
-            junit allowEmptyResults: true, testResults:'**/test_reports/*.xml'
-        }
-        success {
-            echo " Deplopyment successful"
-        }
-        failure {
-            echo 'Build stage failed'
-            error('Stopping early…')
-        }
-      }
 }
 }
