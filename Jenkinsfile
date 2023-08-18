@@ -25,7 +25,7 @@ pipeline {
       steps {
         echo "deploying the application"
         sh "sudo docker build -t netflix ."
-        sh 'sudo docker run -d -p 3000:3000 --name NETFLIX netflix'
+        sh 'sudo docker run -d -p 80:80 --name NETFLIX netflix'
       }
     }
 }
