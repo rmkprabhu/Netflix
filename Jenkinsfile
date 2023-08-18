@@ -3,15 +3,6 @@ pipeline {
    {
     label 'jenkins-sonarqube-project-node'
    }
-  stage('SCM') {
-    checkout scm
-  }
-  stage('SonarQube Analysis') {
-    def scannerHome = tool 'SonarScanner';
-    withSonarQubeEnv() {
-      sh "${scannerHome}/bin/sonar-scanner"
-    }
-  }
     stage('Build') {
       parallel {
         stage('Build') {
