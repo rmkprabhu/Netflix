@@ -35,7 +35,7 @@ pipeline {
     {
       steps {
         echo "removing existing containers to avoid conjunction"
-        sh "sudo docker rm $(docker ps -aq)"
+        sh "sudo docker rm \$(docker ps -aq)"
         echo "building docker image"
         sh "sudo docker build -t netflix ."
         echo "deploying the application"
