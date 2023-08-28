@@ -34,8 +34,11 @@ pipeline {
     stage('Deploy')
     {
       steps {
-        echo "deploying the application"
+        echo "removing existing containers to avoid conjunction"
+        sh "sudo docker rm $(docker ps -aq)"
+        echo "building docker image"
         sh "sudo docker build -t netflix ."
+        echo "deploying the application"
         sh 'sudo docker run -d -p 80:80 --name NETFLIX netflix'
       }
     }
