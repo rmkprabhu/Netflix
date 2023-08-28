@@ -1,7 +1,7 @@
 pipeline {
   agent 
    {
-    label 'jenkins-sonarqube-project-node'
+    label 'sonarqube-netflix'
    }
   stages {
     stage('Build') {
