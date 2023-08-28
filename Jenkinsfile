@@ -8,7 +8,7 @@ pipeline {
       parallel {
         stage('Build') {
           steps {
-            sh 'echo "building the repo in jenkins server"'
+            sh 'echo "building the repo in jenkins server iafter installing docker and git in server"'
           }
         }
       }
